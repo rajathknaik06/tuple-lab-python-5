@@ -1,0 +1,35 @@
+""" Mia is organizing a list of integers into a series of pairs for his new project. She wants to create pairs of consecutive integers from the list.  The last integer should be paired with None to complete the series. The pairing happens as follows: ((Element 1, Element 2), (Element 2, Element 3)........(Element n, None)).
+
+
+
+Your task is to help Henry by writing a Python program that reads a list of integers, forms these pairs, and displays the result in tuple format.
+
+Input format :
+The first line of input consists of an integer n, representing the number of elements in the tuple.
+
+The second line of input contains n space-separated integers, representing the elements of the tuple.
+
+Output format :
+The output displays a tuple containing pairs of consecutive integers from the input. The last integer in the tuple is paired with 'None'."""
+
+
+# Read size of the tuple from user
+n = int(input())
+
+# Read the tuple elements from user
+input_tuple = tuple(map(int, input().split()))
+
+# Initialize an empty result tuple
+result = ()
+
+# Iterate over the input tuple to create pairs
+for i in range(n):
+    if i == n - 1:
+        # Last element paired with None
+        result += ((input_tuple[i], None),)
+    else:
+        # Pair current element with the next element
+        result += ((input_tuple[i], input_tuple[i+1]),)
+
+# Print the resulting tuple
+print(result)
